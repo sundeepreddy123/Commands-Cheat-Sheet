@@ -1,0 +1,56 @@
+//////// *Docker Commands Cheat Sheet* ////////
+$ docker  --version - Check Docker version
+$ docker info - Display system-wide info
+$ docker help - Get help on Docker commands
+
+//////// *Images* /////////
+$ docekr images - List all images
+$ docker pull - Download image from Docker Hub
+$ docker build -t . - Build images from Dockerfile
+$ docker rmi - Remove image
+$ docker tag - Tag an image
+$ docker history - show image layers
+
+/////// *Container*  //////////
+$ docker ps - List running containers
+$ docker ps -a - List all containers (including stopped)
+$ docker run - Run in detached mode
+$ docker run -it bash - Run interactively with shell
+$ docker stop - stop a running container
+$ docker restart - Restart container
+$ docker logs - view logs
+$ docker exec -it bash - Enter running container
+$ docker inspect - Detailed container info
+
+//////// *Volumes* //////////
+$ docker volume create - create volume
+$ docker volume ls - List all volumes
+$ docker volume inspect - Inspect volume
+$ docker volume rm - Remove volume
+
+//////// *Networks* /////////
+$ docker network ls - List all networks
+$ docker network create - Create a custom network
+$ docker network inspect - Inspect network
+$ docker network connect - connect container to network
+$ docker network disconnect - Disconnect container from network
+$ docker network rm - Remove network
+
+//////// *Docker Compose* ////////
+$ docker-compose up - start services
+$ docker-compose up -d - start in detached mode
+$ docker-compose ps - List running service
+$ docker-compose logs - show logs
+
+///////// *System cleanup* ///////
+$ docker system prune - Remove unused data
+$ docker image prune - Remove unused images
+$ docker container prune - Remove stopped containers
+$ docker volume prune - Remove unused volumes
+
+////////// *Advanced / Useful shortcuts* ////////
+$ docker top - show running processes in a container
+$ docker stats - Live resource usage of container
+$ docker rename - Rename container
+$ docker cp : - Copy files from container
+
