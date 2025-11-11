@@ -1,0 +1,17 @@
+🧾 Cluster Info
+kubectl cluster-info               # Show master and DNS addresses
+kubectl get nodes -o wide          # List nodes
+kubectl describe node <node-name>  # Node details
+kubectl top nodes                  # Show node CPU/memory
+
+🧱 Pods & Deployments
+kubectl get pods -A                # All namespaces
+kubectl describe pod <pod>         # Detailed info
+kubectl logs <pod>                 # Show logs
+kubectl exec -it <pod> -- /bin/bash # SSH into pod
+kubectl delete pod <pod>           # Delete a pod
+
+kubectl get deploy                 # List deployments
+kubectl rollout status deploy/<name>  # Watch rollout
+kubectl rollout undo deploy/<name>    # Rollback
+kubectl scale deploy <name> --replicas=5
