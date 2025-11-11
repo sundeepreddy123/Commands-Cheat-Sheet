@@ -1,0 +1,94 @@
+/////////// *Navigation* ///////////
+pwd       - print working directory
+ls        - list directory contents
+ls -la    - list all files with details
+cd /path  - change to path
+cd ..     - go to parent directory
+cd ~      - got to home directory
+tree      - display directories as a tree
+
+///////// *Files and directories* //////////
+touch file.txt        -  create an empty file or update timestamp
+mkdir dir             -  create a directory
+mkdir  -p  a/b/c      -  create nested directories
+cp src dst            -  copy a directory recursively
+mv old new            -  move or rename a file or directory
+rm file               - remove a file
+rm -rf dir            - remove a directory tree (use with caution)
+rmdir emptydir        - remove an empty directory
+stat file             - show file metadata and timestamps
+basename  /path/file  - print filename from path
+dirname  /path/file   - print directory path from filename
+
+//////////  *Viewing and Paging* ////////////
+cat file              - print file contents
+tac file              - print file contents in reverse
+head  -n 20  file     - show first 20 lines
+tail  -n 20  file     - show last 20 lines
+less file             - page through a file with search
+more file             - basic pager for files
+nl file               - number lines while viewing
+wc -l file            - count lines in a file
+
+/////////// *Sreach and text processing ///////////
+grep  "pattern" file          - sreach pattern in a file
+grep  -ri  "pattern" dir/     - recursive, case-insensitive search
+sort file                     - sort lines in a file
+uniq file                     - omit repeated adjacent lines
+cut -d ':' -f 1 file          - select delimited fields
+awk  '{print $1}              - print the first column
+sed -i 's/old/new/g' file     - in-place find and replace
+tr  'a-z'  'A-Z'              - translate characters (lower to upper)
+paste file1 file2             - merger lines side by side
+tee   out.txt                 - write output to file and stdout
+
+////////////// *Permissions and owership* //////////
+chmod 644 file                -  set rw-r-r-- permissions
+chmod 755 file                -  set rwzr-xr-x premissions
+chmod +x script.sh            -  make a file executable
+chown user:group file         -  change froup ownership
+chgrp  group file             -  change group ownership
+unmask 022                    -  set default permissions mask
+getfacl file                  -  view file ACLs
+setfacl -m u:user:rwx file    -  set ACL for a user
+
+///////////// *Processes and jobs* /////////////
+ps aux                        -  list all processes with details
+top                           -  interactive process viewer
+htop                          -  enhanced process viewer (if installed)
+pgrep name                    -  find PIDs by process name
+pkill name                    -  send signals by process name
+kill PID                      -  terminate a process by PID
+killall name                  -  terminate processes by name
+nice -n 10 cmd                -  start with adjusted priority
+renice -n 10 -p PID           -  change priority of running process
+jobs                          -  list shell jobs
+bg %1                         -  resume job in background
+fg %1                         -  bring job to foreground
+nohup command &               -  ignore hangups and in background
+time command                  -  measure execution time
+watch -n 1 free               -  rerun a command at intervals
+
+////////// *System info and logs* ///////////
+uname -a                      -  kernel and system information
+hostnamectl                   -  view or set hostname
+uptime                        -  show load averages and uptime
+free -h                       -  memory and swap usage
+vmstat                        -  vitual memory statistics
+iostat                        -  CPU and I/O statistics
+pidstat                       -  per-CPU statistics
+lscpu                         -  CPU architecture details
+lsusb                         -  list USB devices
+
+/////////// *Disks, partitions, and filesystems* ////////
+df -h                         -  mounted filesystem disk usage
+du -sh dir/                   -  directory size summanry
+lsblk                         -  list block devices
+blkid                         -  print block device attributes
+fdisk -l                      -  list partition tables
+parted -1                     -  list partitons with parted
+mkfs.ext4 /dev/sdx1           -  create an ext4 filesystem
+fsck /dev/sdX1                -  check and repair filesystem
+mount /dev/sdX1 /mnt          -  mount a partition
+unmount /mnt                  -  unmount a filesystem
+cat /etc/fstab                -  view presistent mount table
