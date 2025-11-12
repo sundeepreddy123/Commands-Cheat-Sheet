@@ -1,0 +1,39 @@
+/////// web&Application ////////////
+80  http
+8080 https
+8080/4443 http/https
+1936 HAProxy Admin
+3128 Squid Proxy
+
+////////// Databases ///////////
+3306 Mysql/mariaDB
+5432 postgre SQL
+1433 MS SQL Server
+1521 Oracle DB
+6379 Redis
+
+///////// Monitoring & Logging ////////
+9090   Prometheus
+3000   Grafana
+5601   Kibana
+9200   Elasticsearch
+61616  ActiveMQ
+
+/////////// Messaging ///////////
+5672    RabbitMQ
+9092    kafka
+61616    ActiveMQ
+
+/////////// Remote Access /////////
+22   SSH / SFTP
+21/990   FTPS
+3389    RDP
+23      Telnet
+
+
+///////////// containers & orchestration //////////
+2375/2376     Docker(TLS)
+6443          kubernetes API
+10250/10255   Kubelet API
+10257         controller Manager
+
