@@ -14,4 +14,11 @@ kubectl delete pod <pod>           # Delete a pod
 kubectl get deploy                 # List deployments
 kubectl rollout status deploy/<name>  # Watch rollout
 kubectl rollout undo deploy/<name>    # Rollback
-kubectl scale deploy <name> --replicas=5
+kubectl rollout restart deploy/<name> # Restart deployment
+kubectl rollout undo deploy/<name>--to-revision=<revision_number>
+kubectl scale deployment <deployment_name> --replicas=<replicas> scale deployment with Replicas
+
+Monitoring Usage Commands:-
+
+kubectl top node <node_name> # describes cpu and memory usage of nodes
+kubectl top pods <pod_name>  # describes cpu and memory usage of pod
