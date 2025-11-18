@@ -1,0 +1,29 @@
+parameter:
+  - name: trivyscanDirectory
+    type: string
+
+stepss:
+  - task: powershell@2
+    name: trivy
+    displayName: "Trivy vulnerbilities scan
+    inputs:
+      scrpit: |
+        $workingDirectory  =  $ENV:AGENT_BUILDDIRECTORY
+        $tempDirectory     =  $ENV:AGENT_TEMPDIRECTORY
+        $outputPath        =  "$tempDirectory"
+
+        #Install Trivy
+        echo "installing Trivy...."
+        Invoke-WebRequest -Uri https://github.com/aquasecurity/trivy/release/download/v0.54.1//trivy_0.54.1_Linux-64bit.deb -OutFile trivy.deb
+        sudo dpkg -i trivy.deb
+        
+        # Run Trivy scan on the cloud directory
+        $scanTarget  =  "${{ parameters.trivyscanDirectory }}"
+        echo "Running Trivy filesystem scan on $scanTarget"
+
+        #scanning for vulnerbilities and secrets(default scanner)
+        trivy convert --format template --template "@#workingDirectory/buildTools/templates/trivy/markdown/tpl" --output $outpuutPath/trivy-result.json
+
+        #output report
+        Write-Host  "##vso[task.uploadfile]$outputPath/trivy-report.md"
+        Write-Host  "##vso[task.uploadssummary]$outputPath/trivy-report.md"
