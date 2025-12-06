@@ -27,3 +27,30 @@ stepss:
         #output report
         Write-Host  "##vso[task.uploadfile]$outputPath/trivy-report.md"
         Write-Host  "##vso[task.uploadssummary]$outputPath/trivy-report.md"
+
+
+GitHub Actions Integration
+
+name: Trivy Scan
+on: 
+  push:
+    branchers:
+      - main
+
+jobs:
+  trivy_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy Scan
+        run: |
+          docker pull your-docker-image:latest
+          trivy image your-docker-images:latest--format json --output trivy_report.json
+
+      - name: Upload Trivy Report
+        uses: action/upload-artifcat@v4
+        with:
+          name: trivy-report
+          path: trivy_report.json
