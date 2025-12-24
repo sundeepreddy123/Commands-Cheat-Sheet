@@ -92,3 +92,19 @@ fsck /dev/sdX1                -  check and repair filesystem
 mount /dev/sdX1 /mnt          -  mount a partition
 unmount /mnt                  -  unmount a filesystem
 cat /etc/fstab                -  view presistent mount table
+
+FIVE MOST DANGEROUS LINUX COMMANDS ⚠
+
+1. :(){ :|:& };:
+Fork bomb
+
+2. rm -rf /
+ Force delete
+
+3. dd if=/dev/zero of=/dev/sda
+Zero out disk
+
+4. mkfs.ext4 /dev/sda
+Format drive
+
+5. chmod -R 000 /
